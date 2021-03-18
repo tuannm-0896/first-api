@@ -1,18 +1,21 @@
 package Routes
+
 import (
- "first-api/Controllers"
-"github.com/gin-gonic/gin"
+	"first-api/Controllers"
+
+	"github.com/gin-gonic/gin"
 )
+
 //SetupRouter ... Configure routes
 func SetupRouter() *gin.Engine {
- r := gin.Default()
- grp1 := r.Group("/user-api")
- {
-  grp1.GET("user", Controllers.GetUsers)
-  grp1.POST("user", Controllers.CreateUser)
-  grp1.GET("user/:id", Controllers.GetUserByID)
-  grp1.PUT("user/:id", Controllers.UpdateUser)
-  grp1.DELETE("user/:id", Controllers.DeleteUser)
- }
- return r
+	r := gin.Default()
+	grp1 := r.Group("/first-api")
+	{
+		grp1.GET("courses", Controllers.GetCourses)
+		grp1.POST("course", Controllers.CreateCourse)
+		grp1.GET("course/:id", Controllers.GetCourseByID)
+		grp1.PUT("course/:id", Controllers.UpdateCourse)
+		grp1.DELETE("course/:id", Controllers.DeleteCourse)
+	}
+	return r
 }
